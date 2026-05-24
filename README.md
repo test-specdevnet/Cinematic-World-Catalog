@@ -12,7 +12,7 @@ The reference mockup shows a dark celestial luxury book experience across deskto
 - A mobile story-scroll version using the same DOM: hero image first, horizontal thumbnail rail, lore, prompt panels, gallery, and reachable bottom navigation.
 - Gold-edged surfaces, starfield texture, restrained page-turn controls, and image-led atlas plates instead of generic card grids.
 
-The attached mockup image was not available to the agent as a local file, so `docs/reference/` is prepared for manual placement at `docs/reference/cinematic-worlds-atlas-mockup.png`.
+The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mockup.png`.
 
 ## File Structure
 
@@ -52,7 +52,7 @@ Future chapter additions should not require HTML, CSS, or JS changes unless a ne
 
 ## Replace Images
 
-Place the real PNG files at these exact paths:
+The original PNG files are included at these exact paths. To replace or refresh the artwork, overwrite the matching file:
 
 ```text
 docs/reference/cinematic-worlds-atlas-mockup.png
@@ -66,7 +66,7 @@ assets/images/chapter-2-rainbow-nebula-refinery/3.png
 assets/images/chapter-2-rainbow-nebula-refinery/4.png
 ```
 
-The JSON already points to those paths. Until the real files are added, the site shows elegant missing-image placeholders and does not break.
+The JSON already points to those paths. If a future image is missing, the site shows elegant missing-image placeholders and does not break.
 
 ## Edit Lore and Prompts
 
@@ -129,4 +129,4 @@ Validation checklist:
 - The site intentionally uses no package manager, framework, external font, or build tool.
 - The current repo was empty when implementation began.
 - Prompt and lore content are local curated content, so DOM rendering uses safe text insertion rather than user-submitted HTML.
-- Attached images from the prompt were visible in chat but not available as filesystem files in the agent environment, so manual placement is required.
+- Original prompt images are committed in the project at the paths listed above.
