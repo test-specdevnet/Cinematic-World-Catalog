@@ -2,6 +2,7 @@
   "use strict";
 
   const DATA_URL = "data/chapters.json";
+  const ASSET_VERSION = "20260524-original-images";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -214,7 +215,7 @@
         "aria-label": `Show ${chapter.title} image ${index + 1}`,
         "aria-pressed": index === 0 ? "true" : "false",
       });
-      button.dataset.imageSrc = image;
+      button.dataset.imageSrc = versionAssetSrc(image);
       button.dataset.imageAlt = `${chapter.title} image ${index + 1}: ${chapter.promptLabels[index] || "world view"}`;
       button.append(
         createImageFrame(image, `${chapter.title} thumbnail ${index + 1}`, "thumb-image-frame", {
@@ -602,7 +603,7 @@
 
     fallback.hidden = Boolean(src);
     if (src) {
-      image.src = src;
+      image.src = versionAssetSrc(src);
     } else {
       frame.classList.add("image-is-missing");
       fallback.hidden = false;
@@ -616,6 +617,19 @@
     const fallback = createElement("div", { className: "missing-image" });
     fallback.append(createElement("span", { text: label || "Image awaiting placement" }));
     return fallback;
+  }
+
+  function versionAssetSrc(src) {
+    if (!src || /[?&]v=/.test(src) || /^https?:\/\//i.test(src) || /^data:/i.test(src)) {
+      return src;
+    }
+
+    if (src.startsWith("assets/images/") || src.startsWith("docs/reference/")) {
+      const separator = src.includes("?") ? "&" : "?";
+      return `${src}${separator}v=${ASSET_VERSION}`;
+    }
+
+    return src;
   }
 
   function renderIndexError(error) {
