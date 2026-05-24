@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  const DATA_URL = "data/chapters.json";
-  const ASSET_VERSION = "20260524-original-images";
+  const DATA_URL = "/data/chapters.json";
+  const ASSET_VERSION = "20260524-root-asset-paths";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -620,16 +620,19 @@
   }
 
   function versionAssetSrc(src) {
-    if (!src || /[?&]v=/.test(src) || /^https?:\/\//i.test(src) || /^data:/i.test(src)) {
+    if (!src || /^https?:\/\//i.test(src) || /^data:/i.test(src)) {
       return src;
     }
 
-    if (src.startsWith("assets/images/") || src.startsWith("docs/reference/")) {
-      const separator = src.includes("?") ? "&" : "?";
-      return `${src}${separator}v=${ASSET_VERSION}`;
+    const rootPath = src.startsWith("/") ? src : `/${src}`;
+
+    if (rootPath.startsWith("/assets/images/") || rootPath.startsWith("/docs/reference/")) {
+      const cleanPath = rootPath.replace(/[?&]v=[^&]+/, "");
+      const separator = cleanPath.includes("?") ? "&" : "?";
+      return `${cleanPath}${separator}v=${ASSET_VERSION}`;
     }
 
-    return src;
+    return rootPath;
   }
 
   function renderIndexError(error) {
