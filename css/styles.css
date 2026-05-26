@@ -302,7 +302,7 @@ li {
   display: grid;
   place-items: center;
   min-height: 100svh;
-  padding: calc(var(--nav-height) + 6px) 16px 22px;
+  padding: calc(var(--nav-height) + 4px) 14px 18px;
 }
 
 .cover-stage {
@@ -318,17 +318,17 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: min(94vw, 56svh, 580px);
-  aspect-ratio: 941 / 1672;
-  min-height: 0;
-  padding: clamp(20px, 3.2vw, 42px);
+  width: min(88vw, 70svh, 700px);
+  height: min(92svh, 980px);
+  min-height: 700px;
+  padding: clamp(22px, 3.2vw, 46px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
     radial-gradient(ellipse at 50% 38%, rgba(2, 4, 10, 0.82), rgba(2, 4, 10, 0.5) 21%, transparent 42%),
     linear-gradient(180deg, rgba(2, 4, 10, 0.3), rgba(2, 4, 10, 0.66) 40%, rgba(2, 4, 10, 0.32) 72%, rgba(2, 4, 10, 0.08)),
-    url("/assets/images/atlas-cover.png?v=20260526-cover-route-fix") center / 100% 100% no-repeat,
+    url("/assets/images/atlas-cover.png?v=20260526-cover-flow-fill") center / 100% 100% no-repeat,
     linear-gradient(150deg, #11141c, #070910 46%, #19110b);
   box-shadow: var(--shadow), inset 0 0 0 10px rgba(242, 198, 109, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   text-align: center;
@@ -441,12 +441,14 @@ h1 {
 
 .book-cover h1 {
   display: grid;
-  gap: 0.03em;
-  width: min(92%, 500px);
+  justify-items: center;
+  gap: 0.01em;
+  width: min(78%, 560px);
   max-width: none;
-  margin-top: clamp(46px, 9svh, 110px);
+  margin-top: clamp(62px, 10svh, 118px);
   color: #ffd57b;
-  font-size: clamp(2.25rem, 4.65vw, 3.95rem);
+  font-size: clamp(3rem, 5.2vw, 5.05rem);
+  letter-spacing: 0;
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.92), 0 0 34px rgba(247, 200, 115, 0.28);
 }
 
@@ -466,8 +468,8 @@ h3 {
 }
 
 .cover-subtitle {
-  max-width: min(82%, 34rem);
-  margin-top: clamp(14px, 2svh, 22px);
+  max-width: min(72%, 34rem);
+  margin-top: clamp(16px, 2svh, 24px);
   color: #fff5d8;
   font-size: clamp(1.08rem, 1.45vw, 1.28rem);
   font-weight: 600;
@@ -510,7 +512,7 @@ h3 {
   justify-content: center;
   gap: 12px;
   margin-top: auto;
-  margin-bottom: clamp(36px, 8svh, 104px);
+  margin-bottom: clamp(132px, 18svh, 210px);
 }
 
 .cover-actions .button {
@@ -902,8 +904,8 @@ a.toc-entry:hover {
 .chapter-opening {
   position: relative;
   display: grid;
-  align-items: center;
-  min-height: 100svh;
+  align-items: start;
+  min-height: auto;
   padding: calc(var(--nav-height) + 36px) clamp(14px, 4vw, 52px) 42px;
 }
 
@@ -912,7 +914,7 @@ a.toc-entry:hover {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   width: min(100%, 1560px);
-  min-height: min(760px, calc(100svh - 150px));
+  min-height: calc(100svh - 150px);
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1030,10 +1032,9 @@ a.toc-entry:hover {
   z-index: 1;
   display: grid;
   gap: 22px;
-  max-height: calc(100svh - 210px);
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
   padding: 4px clamp(4px, 0.8vw, 10px) 4px 4px;
-  scrollbar-color: var(--line-strong) transparent;
 }
 
 .chapter-title-group {
@@ -1377,14 +1378,16 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(92vw, 54svh, 510px);
+    width: min(92vw, 64svh, 590px);
+    height: min(88svh, 900px);
+    min-height: 620px;
     padding: 28px 24px;
   }
 
   .book-cover h1 {
-    width: min(90%, 430px);
-    margin-top: clamp(40px, 8svh, 86px);
-    font-size: clamp(2.25rem, 7.2vw, 3.5rem);
+    width: min(78%, 460px);
+    margin-top: clamp(46px, 8svh, 90px);
+    font-size: clamp(2.5rem, 8vw, 3.9rem);
   }
 
   .book-interior {
@@ -1567,8 +1570,10 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(94vw, 52svh, 390px);
-    padding: 22px 18px;
+    width: min(94vw, 58svh, 430px);
+    height: min(84svh, 760px);
+    min-height: 560px;
+    padding: 20px 18px;
   }
 
   .book-cover .eyebrow {
@@ -1576,18 +1581,18 @@ a.toc-entry:hover {
   }
 
   .book-cover h1 {
-    width: min(90%, 340px);
-    margin-top: clamp(30px, 7svh, 60px);
-    font-size: clamp(1.95rem, 10.2vw, 2.8rem);
+    width: min(80%, 340px);
+    margin-top: clamp(34px, 7svh, 62px);
+    font-size: clamp(2.05rem, 10.5vw, 2.95rem);
   }
 
   .cover-subtitle {
-    max-width: 84%;
-    font-size: 1.06rem;
+    max-width: 78%;
+    font-size: 1.02rem;
   }
 
   .cover-actions {
-    margin-bottom: clamp(28px, 7svh, 64px);
+    margin-bottom: clamp(92px, 15svh, 136px);
   }
 
   .toc-entry {
