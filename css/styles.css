@@ -41,11 +41,10 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 50% 7%, rgba(247, 200, 115, 0.2), transparent 32rem),
-    radial-gradient(circle at 16% 15%, rgba(91, 76, 151, 0.18), transparent 30rem),
-    radial-gradient(circle at 84% 10%, rgba(214, 168, 83, 0.18), transparent 28rem),
+    radial-gradient(circle at 18% 16%, rgba(91, 76, 151, 0.18), transparent 30rem),
+    radial-gradient(circle at 78% 8%, rgba(247, 200, 115, 0.16), transparent 24rem),
     radial-gradient(circle at 62% 78%, rgba(72, 178, 214, 0.14), transparent 26rem),
-    linear-gradient(180deg, #130f09, var(--bg) 44%, #04050a);
+    linear-gradient(180deg, var(--bg-deep), var(--bg) 42%, #04050a);
   color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
@@ -171,12 +170,8 @@ li {
   justify-content: space-between;
   min-height: var(--nav-height);
   padding: 14px clamp(18px, 4vw, 56px);
-  background: linear-gradient(180deg, rgba(9, 7, 4, 0.72), rgba(9, 7, 4, 0.28), transparent);
-  backdrop-filter: blur(6px);
-}
-
-body[data-page="index"] .site-header {
-  display: none;
+  background: linear-gradient(180deg, rgba(2, 4, 10, 0.9), rgba(2, 4, 10, 0.56), transparent);
+  backdrop-filter: blur(10px);
 }
 
 .site-mark {
@@ -307,7 +302,7 @@ body[data-page="index"] .site-header {
   display: grid;
   place-items: center;
   min-height: 100svh;
-  padding: clamp(8px, 1.4svh, 18px) 14px clamp(12px, 1.8svh, 24px);
+  padding: calc(var(--nav-height) + 6px) 16px 22px;
 }
 
 .cover-stage {
@@ -323,17 +318,17 @@ body[data-page="index"] .site-header {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: min(94vw, 55svh, 640px);
+  width: min(94vw, 56svh, 580px);
   aspect-ratio: 941 / 1672;
   min-height: 0;
-  padding: clamp(22px, 3.2vw, 46px);
+  padding: clamp(20px, 3.2vw, 42px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
     radial-gradient(ellipse at 50% 38%, rgba(2, 4, 10, 0.82), rgba(2, 4, 10, 0.5) 21%, transparent 42%),
     linear-gradient(180deg, rgba(2, 4, 10, 0.3), rgba(2, 4, 10, 0.66) 40%, rgba(2, 4, 10, 0.32) 72%, rgba(2, 4, 10, 0.08)),
-    url("/assets/images/atlas-cover.png?v=20260526-cover-repair") center / cover no-repeat,
+    url("/assets/images/atlas-cover.png?v=20260526-cover-route-fix") center / 100% 100% no-repeat,
     linear-gradient(150deg, #11141c, #070910 46%, #19110b);
   box-shadow: var(--shadow), inset 0 0 0 10px rgba(242, 198, 109, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   text-align: center;
@@ -424,8 +419,6 @@ body[data-page="index"] .site-header {
 }
 
 .book-cover .eyebrow {
-  position: relative;
-  z-index: 2;
   margin-top: clamp(2px, 1.6svh, 18px);
   margin-bottom: 0;
   color: #ffe7a5;
@@ -446,27 +439,14 @@ h1 {
   font-size: clamp(3.2rem, 8vw, 6.8rem);
 }
 
-.cover-copy-lockup {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  justify-items: center;
-  width: min(88%, 540px);
-  margin-top: clamp(48px, 8.6svh, 104px);
-  padding: clamp(10px, 1.8vw, 18px) clamp(14px, 2.6vw, 30px);
-  background: radial-gradient(ellipse at 50% 48%, rgba(2, 4, 10, 0.84), rgba(2, 4, 10, 0.56) 54%, rgba(2, 4, 10, 0.16) 76%, transparent 100%);
-}
-
 .book-cover h1 {
   display: grid;
-  justify-items: center;
-  gap: 0.01em;
-  width: 100%;
+  gap: 0.03em;
+  width: min(92%, 500px);
   max-width: none;
-  margin-top: 0;
+  margin-top: clamp(46px, 9svh, 110px);
   color: #ffd57b;
-  font-size: clamp(2.8rem, 5vw, 4.55rem);
-  letter-spacing: 0;
+  font-size: clamp(2.25rem, 4.65vw, 3.95rem);
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.92), 0 0 34px rgba(247, 200, 115, 0.28);
 }
 
@@ -486,13 +466,13 @@ h3 {
 }
 
 .cover-subtitle {
-  max-width: 31ch;
-  margin-top: clamp(12px, 1.6svh, 20px);
-  color: #fff2c8;
-  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  max-width: min(82%, 34rem);
+  margin-top: clamp(14px, 2svh, 22px);
+  color: #fff5d8;
+  font-size: clamp(1.08rem, 1.45vw, 1.28rem);
   font-weight: 600;
   line-height: 1.42;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.95), 0 0 18px rgba(0, 0, 0, 0.72);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.92);
 }
 
 .cover-attribution {
@@ -525,21 +505,34 @@ h3 {
 }
 
 .cover-actions {
-  position: absolute;
-  bottom: clamp(174px, 22svh, 260px);
-  left: 50%;
-  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin: 0;
-  transform: translateX(-50%);
+  margin-top: auto;
+  margin-bottom: clamp(36px, 8svh, 104px);
 }
 
 .cover-actions .button {
   width: auto;
   min-width: min(100%, 230px);
+}
+
+@media (min-width: 901px) {
+  .book-cover {
+    width: min(92vw, 64svh, 660px);
+    height: min(94svh, 960px);
+    aspect-ratio: auto;
+  }
+
+  .cover-actions {
+    position: absolute;
+    bottom: clamp(280px, 34svh, 360px);
+    left: 50%;
+    z-index: 3;
+    margin: 0;
+    transform: translateX(-50%);
+  }
 }
 
 .button {
@@ -1401,21 +1394,14 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(94vw, 54svh, 560px);
-    aspect-ratio: 941 / 1672;
-    min-height: 0;
+    width: min(92vw, 54svh, 510px);
     padding: 28px 24px;
   }
 
-  .cover-copy-lockup {
-    width: min(88%, 460px);
-    margin-top: clamp(42px, 7.4svh, 82px);
-  }
-
   .book-cover h1 {
-    width: 100%;
-    margin-top: 0;
-    font-size: clamp(2.45rem, 7.4vw, 3.65rem);
+    width: min(90%, 430px);
+    margin-top: clamp(40px, 8svh, 86px);
+    font-size: clamp(2.25rem, 7.2vw, 3.5rem);
   }
 
   .book-interior {
@@ -1424,8 +1410,7 @@ a.toc-entry:hover {
   }
 
   .cover-actions {
-    bottom: clamp(150px, 19svh, 210px);
-    width: auto;
+    width: 100%;
   }
 
   .button {
@@ -1599,36 +1584,27 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(94vw, 52svh, 430px);
-    aspect-ratio: 941 / 1672;
-    min-height: 0;
-    padding: 20px 18px;
+    width: min(94vw, 52svh, 390px);
+    padding: 22px 18px;
   }
 
   .book-cover .eyebrow {
     font-size: 0.58rem;
   }
 
-  .cover-copy-lockup {
-    width: min(88%, 340px);
-    margin-top: clamp(28px, 6.2svh, 52px);
-    padding: 8px 12px;
-  }
-
   .book-cover h1 {
-    width: 100%;
-    margin-top: 0;
-    font-size: clamp(2rem, 9.6vw, 2.78rem);
+    width: min(90%, 340px);
+    margin-top: clamp(30px, 7svh, 60px);
+    font-size: clamp(1.95rem, 10.2vw, 2.8rem);
   }
 
   .cover-subtitle {
-    max-width: 28ch;
-    font-size: 0.94rem;
+    max-width: 84%;
+    font-size: 1.06rem;
   }
 
   .cover-actions {
-    bottom: clamp(126px, 18svh, 166px);
-    margin: 0;
+    margin-bottom: clamp(28px, 7svh, 64px);
   }
 
   .toc-entry {
