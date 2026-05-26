@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260524-root-asset-paths";
+  const ASSET_VERSION = "20260526-pdf-edits-2";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -37,6 +37,7 @@
       const chapters = await fetchChapters();
       renderTableOfContents(chapters);
       renderFeaturedWorlds(chapters);
+      setupCoverControls();
       setupScrollControls();
     } catch (error) {
       renderIndexError(error);
@@ -235,10 +236,9 @@
 
     scroll.append(
       createChapterTitleGroup(chapter),
-      createChapterMeta(chapter),
       createLoreBlock(chapter),
-      createTagGroup("Visual DNA", chapter.visualDNA),
-      createPromptList(chapter)
+      createPromptList(chapter),
+      createPromptDna(chapter)
     );
 
     pageElement.append(scroll);
@@ -314,56 +314,27 @@
     return group;
   }
 
-  function createChapterContinuation(chapter, previousChapter, nextChapter) {
-    const wrap = createElement("section", { className: "chapter-continuation", "aria-label": "Chapter gallery and next steps" });
-    const galleryPanel = createElement("div", { className: "chapter-panel" });
-    const gallery = createElement("div", { className: "gallery-grid", "aria-label": `${chapter.title} gallery` });
-
-    chapter.images.forEach((image, index) => {
-      gallery.append(
-        createImageFrame(image, `${chapter.title} gallery image ${index + 1}`, "gallery-image-frame", {
-          fallbackLabel: `${chapter.shortTitle || chapter.title} image ${index + 1} pending`,
-          lazy: true,
-        })
-      );
+  function createPromptDna(chapter) {
+    const group = createElement("section", {
+      className: "content-group prompt-dna-block",
+      "aria-labelledby": "prompt-dna-title",
     });
+    const grid = createElement("div", { className: "prompt-dna-grid" });
+    grid.append(createTagGroup("Visual DNA", chapter.visualDNA), createUseCases(chapter.useCases));
 
-    galleryPanel.append(
-      createElement("span", { className: "chapter-eyebrow", text: "The World" }),
-      createElement("h2", { text: "Gallery" }),
-      gallery
-    );
-
-    const detailsPanel = createElement("div", { className: "chapter-panel" });
-    const detailGrid = createElement("div", { className: "details-grid" });
-    detailGrid.append(createTagGroup("Visual DNA", chapter.visualDNA), createUseCases(chapter.useCases));
-
-    const cta = createElement("div", { className: "chapter-cta" });
-    const ctaCopy = createElement("div");
-    ctaCopy.append(
-      createElement("h3", { text: chapter.ctaLabel || "Commission this world style" }),
-      createElement("p", { text: 'DM "WORLD" on Instagram to build a custom cinematic setting.' })
-    );
-    cta.append(
-      ctaCopy,
-      createElement("a", {
-        className: "button button-primary",
-        href: "https://www.instagram.com/cinematic_aesthetics_/",
-        target: "_blank",
-        rel: "noopener",
-        text: "Commission a World",
-      })
-    );
-
-    detailsPanel.append(
+    group.append(
       createElement("span", { className: "chapter-eyebrow", text: "Creation Notes" }),
-      createElement("h2", { text: "Prompt DNA" }),
-      detailGrid,
-      cta,
-      createBottomNav(previousChapter, nextChapter)
+      createElement("h2", { id: "prompt-dna-title", text: "Prompt DNA" }),
+      grid
     );
+    return group;
+  }
 
-    wrap.append(galleryPanel, detailsPanel);
+  function createChapterContinuation(chapter, previousChapter, nextChapter) {
+    const wrap = createElement("section", { className: "chapter-continuation", "aria-label": "Chapter navigation" });
+    const navPanel = createElement("div", { className: "chapter-panel chapter-nav-panel" });
+    navPanel.append(createBottomNav(previousChapter, nextChapter));
+    wrap.append(navPanel);
     return wrap;
   }
 
@@ -575,6 +546,23 @@
     );
 
     sections.forEach((section) => observer.observe(section));
+  }
+
+  function setupCoverControls() {
+    const trigger = document.querySelector("[data-open-atlas]");
+    const contents = document.getElementById("contents");
+    if (!trigger || !contents) return;
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      contents.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, "", "#contents");
+      } else {
+        window.location.hash = "contents";
+      }
+    });
   }
 
   function createImageFrame(src, alt, className, options) {

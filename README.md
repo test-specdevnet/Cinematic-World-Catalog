@@ -6,11 +6,11 @@ A static premium atlas for cinematic AI-generated worlds connected to [@cinemati
 
 The reference mockup shows a dark celestial luxury book experience across desktop and mobile. The implementation maps that direction into:
 
-- A first-viewport book-cover landing screen with gold serif title hierarchy, celestial backdrop, ornamental borders, and Instagram attribution.
+- A first-viewport book-cover landing screen using `assets/images/atlas-cover.png`, gold serif title hierarchy, celestial backdrop, and ornamental borders.
 - A table of contents rendered from `data/chapters.json`, with published chapters as clickable rows and coming chapters as locked entries.
-- A chapter detail page that opens as a desktop book spread: image gallery on the left, lore, visual DNA, and prompt starters on the right.
-- A mobile story-scroll version using the same DOM: hero image first, horizontal thumbnail rail, lore, prompt panels, gallery, and reachable bottom navigation.
-- Gold-edged surfaces, starfield texture, restrained page-turn controls, and image-led atlas plates instead of generic card grids.
+- A chapter detail page that opens as a desktop book spread: image selector on the left, lore, prompt starters, and Prompt DNA on the right.
+- A mobile story-scroll version using the same DOM: hero image first, horizontal thumbnail rail, lore, prompt panels, Prompt DNA, and reachable bottom navigation.
+- Gold-edged surfaces, starfield texture, restrained page-turn controls, and a clean table-of-contents flow without redundant gallery or commission sections.
 
 The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mockup.png`.
 
@@ -23,6 +23,7 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
   css/styles.css
   js/main.js
   data/chapters.json
+  assets/images/atlas-cover.png
   assets/images/chapter-1-crystal-solarwave-skyport/
   assets/images/chapter-2-rainbow-nebula-refinery/
   docs/reference/
@@ -34,9 +35,9 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
 
 ## JSON Chapter System
 
-All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the table of contents and featured world plates. `chapter.html` reads the URL query string, finds the matching `slug`, and renders the right state:
+All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the table of contents. `chapter.html` reads the URL query string, finds the matching `slug`, and renders the right state:
 
-- Published chapter: full book spread, gallery, lore, tags, use cases, prompt starters, copy buttons, and previous/next navigation.
+- Published chapter: full book spread, image selector, lore, prompt starters, Prompt DNA tags, use cases, copy buttons, and previous/next navigation.
 - Coming soon chapter: locked chapter page with title, tagline, theme, and a back link.
 - Missing or invalid slug: tasteful error page with a return link.
 
@@ -56,6 +57,7 @@ The original PNG files are included at these exact paths. To replace or refresh 
 
 ```text
 docs/reference/cinematic-worlds-atlas-mockup.png
+assets/images/atlas-cover.png
 assets/images/chapter-1-crystal-solarwave-skyport/1.png
 assets/images/chapter-1-crystal-solarwave-skyport/2.png
 assets/images/chapter-1-crystal-solarwave-skyport/3.png
