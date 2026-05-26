@@ -7,7 +7,7 @@ A static premium atlas for cinematic AI-generated worlds connected to [@cinemati
 The reference mockup shows a dark celestial luxury book experience across desktop and mobile. The implementation maps that direction into:
 
 - A first-viewport book-cover landing screen using `assets/images/atlas-cover.png`, gold serif title hierarchy, celestial backdrop, and ornamental borders.
-- A table of contents rendered from `data/chapters.json`, with published chapters as clickable rows and coming chapters as locked entries.
+- An opened-cover table of contents rendered from `data/chapters.json`, with published chapters as clickable rows and coming chapters as locked entries.
 - A chapter detail page that opens as a desktop book spread: image selector on the left, lore, prompt starters, and Prompt DNA on the right.
 - A mobile story-scroll version using the same DOM: hero image first, horizontal thumbnail rail, lore, prompt panels, Prompt DNA, and reachable bottom navigation.
 - Gold-edged surfaces, starfield texture, restrained page-turn controls, and a clean table-of-contents flow without redundant gallery or commission sections.
@@ -35,7 +35,7 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
 
 ## JSON Chapter System
 
-All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the table of contents. `chapter.html` reads the URL query string, finds the matching `slug`, and renders the right state:
+All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the opened-cover table of contents. The landing page itself contains only the atlas cover experience and the How to Use section. `chapter.html` reads the URL query string, finds the matching `slug`, and renders the right state:
 
 - Published chapter: full book spread, image selector, lore, prompt starters, Prompt DNA tags, use cases, copy buttons, and previous/next navigation.
 - Coming soon chapter: locked chapter page with title, tagline, theme, and a back link.

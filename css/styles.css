@@ -302,7 +302,7 @@ li {
   display: grid;
   place-items: center;
   min-height: 100svh;
-  padding: calc(var(--nav-height) + 20px) 22px 40px;
+  padding: calc(var(--nav-height) + 12px) 22px 28px;
 }
 
 .cover-stage {
@@ -318,21 +318,50 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: min(92vw, 560px);
-  height: min(86svh, 900px);
-  min-height: 620px;
-  padding: clamp(26px, 4vw, 54px);
+  width: min(92vw, 48svh, 520px);
+  aspect-ratio: 941 / 1672;
+  min-height: 0;
+  padding: clamp(18px, 3.2vw, 40px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
     radial-gradient(ellipse at 50% 38%, rgba(2, 4, 10, 0.82), rgba(2, 4, 10, 0.5) 21%, transparent 42%),
     linear-gradient(180deg, rgba(2, 4, 10, 0.3), rgba(2, 4, 10, 0.66) 40%, rgba(2, 4, 10, 0.32) 72%, rgba(2, 4, 10, 0.08)),
-    url("/assets/images/atlas-cover.png?v=20260526-pdf-edits-2") center / cover no-repeat,
+    url("/assets/images/atlas-cover.png?v=20260526-cover-open") center / 100% 100% no-repeat,
     linear-gradient(150deg, #11141c, #070910 46%, #19110b);
   box-shadow: var(--shadow), inset 0 0 0 10px rgba(242, 198, 109, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   text-align: center;
   transform: rotateX(1.5deg);
+}
+
+.book-interior {
+  position: relative;
+  width: min(100%, 1040px);
+  max-height: min(82svh, 860px);
+  overflow: auto;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 13%, transparent 87%, rgba(255, 255, 255, 0.05)),
+    radial-gradient(circle at 50% 0%, rgba(247, 200, 115, 0.13), transparent 28rem),
+    linear-gradient(135deg, rgba(21, 17, 13, 0.98), rgba(7, 9, 16, 0.98));
+  box-shadow: var(--shadow), 0 0 62px rgba(247, 200, 115, 0.14);
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.book-interior::before {
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  border: 1px solid rgba(242, 198, 109, 0.12);
+  content: "";
+}
+
+.book-interior > .section-shell {
+  position: relative;
+  z-index: 1;
 }
 
 .book-cover::before,
@@ -412,9 +441,9 @@ h1 {
 
 .book-cover h1 {
   max-width: 9ch;
-  margin-top: clamp(70px, 12svh, 132px);
+  margin-top: clamp(50px, 10svh, 112px);
   color: #ffd57b;
-  font-size: clamp(2.7rem, 5.9vw, 4.85rem);
+  font-size: clamp(2.35rem, 5.2vw, 4.45rem);
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.92), 0 0 34px rgba(247, 200, 115, 0.28);
 }
 
@@ -472,7 +501,7 @@ h3 {
   justify-content: center;
   gap: 12px;
   margin-top: auto;
-  margin-bottom: clamp(76px, 14svh, 148px);
+  margin-bottom: clamp(42px, 9svh, 112px);
 }
 
 .cover-actions .button {
@@ -1339,15 +1368,18 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(100%, calc(100vw - 28px));
-    height: min(820px, calc(100svh - 112px));
-    min-height: 0;
+    width: min(88vw, 46svh, 470px);
     padding: 30px 24px;
   }
 
   .book-cover h1 {
-    margin-top: clamp(56px, 10svh, 104px);
-    font-size: clamp(2.35rem, 9vw, 3.7rem);
+    margin-top: clamp(48px, 9svh, 92px);
+    font-size: clamp(2.1rem, 8vw, 3.4rem);
+  }
+
+  .book-interior {
+    max-height: calc(100svh - var(--nav-height) - 40px);
+    padding: 18px;
   }
 
   .cover-actions {
@@ -1525,7 +1557,7 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    height: min(740px, calc(100svh - 106px));
+    width: min(90vw, 44svh, 360px);
     padding: 24px 20px;
   }
 
@@ -1534,8 +1566,8 @@ a.toc-entry:hover {
   }
 
   .book-cover h1 {
-    margin-top: clamp(42px, 8svh, 74px);
-    font-size: clamp(2rem, 11vw, 2.85rem);
+    margin-top: clamp(32px, 7svh, 64px);
+    font-size: clamp(1.75rem, 9.5vw, 2.5rem);
   }
 
   .cover-subtitle {
@@ -1543,7 +1575,7 @@ a.toc-entry:hover {
   }
 
   .cover-actions {
-    margin-bottom: clamp(48px, 11svh, 88px);
+    margin-bottom: clamp(28px, 7svh, 64px);
   }
 
   .toc-entry {

@@ -14,8 +14,8 @@
     <meta name="twitter:description" content="Explore The Cinematic Worlds Atlas, a living catalog of cinematic AI worlds, lore, visual DNA, and prompt foundations by @cinematic_aesthetics_.">
     <link rel="canonical" href="https://cinematic-world-catalog.pages.dev/">
     <link rel="preload" href="/assets/images/atlas-cover.png" as="image">
-    <link rel="preload" href="/css/styles.css?v=20260526-pdf-edits-2" as="style">
-    <link rel="stylesheet" href="/css/styles.css?v=20260526-pdf-edits-2">
+    <link rel="preload" href="/css/styles.css?v=20260526-cover-open" as="style">
+    <link rel="stylesheet" href="/css/styles.css?v=20260526-cover-open">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -34,19 +34,19 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" aria-label="Primary">
-      <a class="site-mark earth-home" href="#cover" aria-label="Return to atlas cover">
+      <a class="site-mark earth-home" href="#cover" aria-label="Return to atlas cover" data-close-atlas>
         <span class="earth-sigil" aria-hidden="true"></span>
         <span class="sr-only">The Cinematic Worlds Atlas</span>
       </a>
       <nav class="site-nav" aria-label="Atlas navigation">
-        <a href="#contents">Chapters</a>
+        <a href="#contents" data-open-atlas>Chapters</a>
       </nav>
     </header>
 
     <main id="main" class="atlas-main index-main">
       <section id="cover" class="snap-section cover-section" aria-labelledby="cover-title">
-        <div class="cover-stage">
-          <div class="book-cover" aria-label="Atlas cover">
+        <div class="cover-stage" data-cover-stage>
+          <div class="book-cover" aria-label="Atlas cover" data-cover-front>
             <div class="cover-ornament" aria-hidden="true"></div>
             <p class="eyebrow">Curated celestial codex</p>
             <h1 id="cover-title">The Cinematic World Atlas</h1>
@@ -55,16 +55,16 @@
               <a class="button button-primary" href="#contents" data-open-atlas>Open the Atlas</a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="contents" class="snap-section atlas-section contents-section" aria-labelledby="contents-title">
-        <div class="section-shell">
-          <div class="section-kicker">Choose a chapter to begin</div>
-          <h2 id="contents-title">Table of Contents</h2>
-          <p class="section-intro">Published worlds open as image-led book spreads. Locked chapters remain visible in the atlas so the weekly catalog can keep its shape.</p>
-          <div class="toc-book" data-toc-list aria-live="polite">
-            <div class="loading-line">Illuminating the chapter index...</div>
+          <div id="contents" class="book-interior" aria-labelledby="contents-title" data-cover-interior hidden>
+            <div class="section-shell">
+              <div class="section-kicker">Choose a chapter to begin</div>
+              <h2 id="contents-title" tabindex="-1">Table of Contents</h2>
+              <p class="section-intro">Published worlds open as image-led book spreads. Locked chapters remain visible in the atlas so the weekly catalog can keep its shape.</p>
+              <div class="toc-book" data-toc-list aria-live="polite">
+                <div class="loading-line">Illuminating the chapter index...</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -100,6 +100,6 @@
     </main>
 
     <div class="section-progress" data-section-progress aria-label="Index sections"></div>
-    <script src="/js/main.js?v=20260526-pdf-edits-2" defer></script>
+    <script src="/js/main.js?v=20260526-cover-open" defer></script>
   </body>
 </html>

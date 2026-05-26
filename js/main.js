@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260526-pdf-edits-2";
+  const ASSET_VERSION = "20260526-cover-open";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -36,7 +36,6 @@
     try {
       const chapters = await fetchChapters();
       renderTableOfContents(chapters);
-      renderFeaturedWorlds(chapters);
       setupCoverControls();
       setupScrollControls();
     } catch (error) {
@@ -91,51 +90,6 @@
       })
     );
     return copy;
-  }
-
-  function renderFeaturedWorlds(chapters) {
-    const mount = document.querySelector("[data-featured-worlds]");
-    if (!mount) return;
-
-    const published = getPublishedChapters(chapters);
-    const fragment = document.createDocumentFragment();
-
-    published.forEach((chapter) => {
-      const plate = createElement("a", {
-        className: "world-plate",
-        href: `chapter.html?slug=${encodeURIComponent(chapter.slug)}`,
-      });
-      plate.style.setProperty("--accent", chapter.accentColor || "var(--gold)");
-      plate.setAttribute("aria-label", `Open ${chapter.title}`);
-
-      const copy = createElement("div", { className: "plate-copy" });
-      const dnaPreview = createElement("div", {
-        className: "dna-preview",
-        "aria-label": `${chapter.shortTitle} visual DNA preview`,
-      });
-
-      chapter.visualDNA.slice(0, 4).forEach((tag) => {
-        dnaPreview.append(createElement("span", { text: tag }));
-      });
-
-      copy.append(
-        createElement("span", { className: "chapter-eyebrow", text: `Chapter ${chapter.chapterNumber}` }),
-        createElement("h3", { text: chapter.title }),
-        createElement("p", { text: chapter.tagline }),
-        dnaPreview
-      );
-
-      plate.append(
-        createImageFrame(chapter.coverImage, `${chapter.title} featured world image`, "plate-media", {
-          fallbackLabel: `${chapter.shortTitle || chapter.title} image pending`,
-        }),
-        copy
-      );
-
-      fragment.append(plate);
-    });
-
-    mount.replaceChildren(fragment);
   }
 
   async function renderChapterPage() {
@@ -549,20 +503,53 @@
   }
 
   function setupCoverControls() {
-    const trigger = document.querySelector("[data-open-atlas]");
-    const contents = document.getElementById("contents");
-    if (!trigger || !contents) return;
+    const triggers = Array.from(document.querySelectorAll("[data-open-atlas]"));
+    const closeTriggers = Array.from(document.querySelectorAll("[data-close-atlas]"));
+    const stage = document.querySelector("[data-cover-stage]");
+    const front = document.querySelector("[data-cover-front]");
+    const contents = document.querySelector("[data-cover-interior]");
+    const contentsTitle = document.getElementById("contents-title");
+    if (!stage || !front || !contents || !triggers.length) return;
 
-    trigger.addEventListener("click", (event) => {
+    const openAtlas = (event) => {
       event.preventDefault();
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      contents.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      stage.classList.add("is-open");
+      front.hidden = true;
+      contents.hidden = false;
+      document.getElementById("cover").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
       if (window.history && window.history.pushState) {
         window.history.pushState(null, "", "#contents");
       } else {
         window.location.hash = "contents";
       }
-    });
+      window.setTimeout(() => {
+        if (contentsTitle) contentsTitle.focus({ preventScroll: true });
+      }, prefersReducedMotion ? 0 : 220);
+    };
+
+    const closeAtlas = (event) => {
+      if (event) event.preventDefault();
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      stage.classList.remove("is-open");
+      front.hidden = false;
+      contents.hidden = true;
+      document.getElementById("cover").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, "", "#cover");
+      } else {
+        window.location.hash = "cover";
+      }
+    };
+
+    triggers.forEach((trigger) => trigger.addEventListener("click", openAtlas));
+    closeTriggers.forEach((trigger) => trigger.addEventListener("click", closeAtlas));
+
+    if (window.location.hash === "#contents") {
+      stage.classList.add("is-open");
+      front.hidden = true;
+      contents.hidden = false;
+    }
   }
 
   function createImageFrame(src, alt, className, options) {
@@ -624,7 +611,7 @@
   }
 
   function renderIndexError(error) {
-    const mounts = [document.querySelector("[data-toc-list]"), document.querySelector("[data-featured-worlds]")].filter(Boolean);
+    const mounts = [document.querySelector("[data-toc-list]")].filter(Boolean);
     mounts.forEach((mount) => {
       mount.replaceChildren(
         createElement("p", {
@@ -721,7 +708,6 @@
     fetchChapters,
     renderIndex,
     renderTableOfContents,
-    renderFeaturedWorlds,
     renderChapterPage,
     renderComingSoonChapter,
     setupScrollControls,
