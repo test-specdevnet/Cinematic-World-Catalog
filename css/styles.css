@@ -302,7 +302,7 @@ li {
   display: grid;
   place-items: center;
   min-height: 100svh;
-  padding: calc(var(--nav-height) + 12px) 22px 28px;
+  padding: calc(var(--nav-height) + 6px) 16px 22px;
 }
 
 .cover-stage {
@@ -318,17 +318,17 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: min(92vw, 48svh, 520px);
+  width: min(94vw, 56svh, 580px);
   aspect-ratio: 941 / 1672;
   min-height: 0;
-  padding: clamp(18px, 3.2vw, 40px);
+  padding: clamp(20px, 3.2vw, 42px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
     radial-gradient(ellipse at 50% 38%, rgba(2, 4, 10, 0.82), rgba(2, 4, 10, 0.5) 21%, transparent 42%),
     linear-gradient(180deg, rgba(2, 4, 10, 0.3), rgba(2, 4, 10, 0.66) 40%, rgba(2, 4, 10, 0.32) 72%, rgba(2, 4, 10, 0.08)),
-    url("/assets/images/atlas-cover.png?v=20260526-cover-open") center / 100% 100% no-repeat,
+    url("/assets/images/atlas-cover.png?v=20260526-cover-route-fix") center / 100% 100% no-repeat,
     linear-gradient(150deg, #11141c, #070910 46%, #19110b);
   box-shadow: var(--shadow), inset 0 0 0 10px rgba(242, 198, 109, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   text-align: center;
@@ -440,11 +440,18 @@ h1 {
 }
 
 .book-cover h1 {
-  max-width: 9ch;
-  margin-top: clamp(50px, 10svh, 112px);
+  display: grid;
+  gap: 0.03em;
+  width: min(92%, 500px);
+  max-width: none;
+  margin-top: clamp(46px, 9svh, 110px);
   color: #ffd57b;
-  font-size: clamp(2.35rem, 5.2vw, 4.45rem);
+  font-size: clamp(2.25rem, 4.65vw, 3.95rem);
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.92), 0 0 34px rgba(247, 200, 115, 0.28);
+}
+
+.book-cover h1 span {
+  display: block;
 }
 
 h2 {
@@ -459,10 +466,12 @@ h3 {
 }
 
 .cover-subtitle {
-  max-width: 30rem;
-  margin-top: 18px;
+  max-width: min(82%, 34rem);
+  margin-top: clamp(14px, 2svh, 22px);
   color: #fff5d8;
-  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  font-size: clamp(1.08rem, 1.45vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.42;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.92);
 }
 
@@ -501,7 +510,7 @@ h3 {
   justify-content: center;
   gap: 12px;
   margin-top: auto;
-  margin-bottom: clamp(42px, 9svh, 112px);
+  margin-bottom: clamp(36px, 8svh, 104px);
 }
 
 .cover-actions .button {
@@ -1368,13 +1377,14 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(88vw, 46svh, 470px);
-    padding: 30px 24px;
+    width: min(92vw, 54svh, 510px);
+    padding: 28px 24px;
   }
 
   .book-cover h1 {
-    margin-top: clamp(48px, 9svh, 92px);
-    font-size: clamp(2.1rem, 8vw, 3.4rem);
+    width: min(90%, 430px);
+    margin-top: clamp(40px, 8svh, 86px);
+    font-size: clamp(2.25rem, 7.2vw, 3.5rem);
   }
 
   .book-interior {
@@ -1557,8 +1567,8 @@ a.toc-entry:hover {
   }
 
   .book-cover {
-    width: min(90vw, 44svh, 360px);
-    padding: 24px 20px;
+    width: min(94vw, 52svh, 390px);
+    padding: 22px 18px;
   }
 
   .book-cover .eyebrow {
@@ -1566,12 +1576,14 @@ a.toc-entry:hover {
   }
 
   .book-cover h1 {
-    margin-top: clamp(32px, 7svh, 64px);
-    font-size: clamp(1.75rem, 9.5vw, 2.5rem);
+    width: min(90%, 340px);
+    margin-top: clamp(30px, 7svh, 60px);
+    font-size: clamp(1.95rem, 10.2vw, 2.8rem);
   }
 
   .cover-subtitle {
-    font-size: 1rem;
+    max-width: 84%;
+    font-size: 1.06rem;
   }
 
   .cover-actions {

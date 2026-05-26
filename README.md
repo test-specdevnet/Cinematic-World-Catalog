@@ -20,6 +20,7 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
 /
   index.html
   chapter.html
+  chapter/index.html
   css/styles.css
   js/main.js
   data/chapters.json
@@ -35,7 +36,7 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
 
 ## JSON Chapter System
 
-All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the opened-cover table of contents. The landing page itself contains only the atlas cover experience and the How to Use section. `chapter.html` reads the URL query string, finds the matching `slug`, and renders the right state:
+All chapter rendering is driven by `data/chapters.json`. `index.html` fetches the JSON to build the opened-cover table of contents. The landing page itself contains only the atlas cover experience and the How to Use section. `/chapter/` and `chapter.html` read the URL query string, find the matching `slug`, and render the right state:
 
 - Published chapter: full book spread, image selector, lore, prompt starters, Prompt DNA tags, use cases, copy buttons, and previous/next navigation.
 - Coming soon chapter: locked chapter page with title, tagline, theme, and a back link.
@@ -49,7 +50,7 @@ Future chapter additions should not require HTML, CSS, or JS changes unless a ne
 2. Open `data/chapters.json`.
 3. Change Chapter 3 from `"status": "coming-soon"` to `"status": "published"`.
 4. Add `imageDirectory`, `coverImage`, `images`, `lore`, `prompts`, `promptLabels`, `visualDNA`, `useCases`, `ctaLabel`, and `instagramCaptionSeed`.
-5. Visit `chapter.html?slug=elyssian-dome-cities` locally to verify the page.
+5. Visit `/chapter/?slug=elyssian-dome-cities` locally to verify the page.
 
 ## Replace Images
 
@@ -102,9 +103,9 @@ python -m http.server 4173
 Then check:
 
 - `http://localhost:4173/index.html`
-- `http://localhost:4173/chapter.html?slug=crystal-solarwave-skyport`
-- `http://localhost:4173/chapter.html?slug=rainbow-nebula-refinery`
-- `http://localhost:4173/chapter.html?slug=elyssian-dome-cities`
+- `http://localhost:4173/chapter/?slug=crystal-solarwave-skyport`
+- `http://localhost:4173/chapter/?slug=rainbow-nebula-refinery`
+- `http://localhost:4173/chapter/?slug=elyssian-dome-cities`
 
 Validation checklist:
 

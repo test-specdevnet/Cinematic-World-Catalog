@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260526-cover-open";
+  const ASSET_VERSION = "20260526-cover-route-fix";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -58,7 +58,7 @@
       entry.style.setProperty("--accent", chapter.accentColor || "var(--gold)");
 
       if (isPublished) {
-        entry.href = `chapter.html?slug=${encodeURIComponent(chapter.slug)}`;
+        entry.href = chapterHref(chapter.slug);
         entry.setAttribute("aria-label", `Open chapter ${chapter.chapterNumber}: ${chapter.title}`);
       } else {
         entry.setAttribute("aria-disabled", "true");
@@ -308,15 +308,15 @@
       previousChapter
         ? createElement("a", {
             className: "button button-secondary",
-            href: `chapter.html?slug=${encodeURIComponent(previousChapter.slug)}`,
+            href: chapterHref(previousChapter.slug),
             text: `Previous: ${previousChapter.shortTitle}`,
           })
         : createElement("span", { className: "button button-secondary", text: "First Chapter", "aria-disabled": "true" }),
-      createElement("a", { className: "button button-secondary", href: "index.html#contents", text: "Back to Atlas" }),
+      createElement("a", { className: "button button-secondary", href: "/#contents", text: "Back to Atlas" }),
       nextChapter
         ? createElement("a", {
             className: "button button-secondary",
-            href: `chapter.html?slug=${encodeURIComponent(nextChapter.slug)}`,
+            href: chapterHref(nextChapter.slug),
             text: `Next: ${nextChapter.shortTitle}`,
           })
         : createElement("span", { className: "button button-secondary", text: "More Worlds Soon", "aria-disabled": "true" })
@@ -340,7 +340,7 @@
 
     return createElement("a", {
       className: `page-turn ${direction}`,
-      href: `chapter.html?slug=${encodeURIComponent(targetChapter.slug)}`,
+      href: chapterHref(targetChapter.slug),
       "aria-label": `${label}: ${targetChapter.title}`,
       text: glyph,
     });
@@ -359,7 +359,7 @@
       createElement("h1", { id: "coming-title", text: chapter.title }),
       createElement("p", { text: chapter.tagline }),
       createElement("p", { text: `Theme: ${chapter.theme}` }),
-      createElement("a", { className: "button button-primary", href: "index.html#contents", text: "Back to Contents" })
+      createElement("a", { className: "button button-primary", href: "/#contents", text: "Back to Contents" })
     );
 
     section.append(shell);
@@ -441,9 +441,9 @@
 
   function setupChapterKeyboardNavigation(previousChapter, nextChapter) {
     document.body.dataset.previousChapterHref = previousChapter
-      ? `chapter.html?slug=${encodeURIComponent(previousChapter.slug)}`
+      ? chapterHref(previousChapter.slug)
       : "";
-    document.body.dataset.nextChapterHref = nextChapter ? `chapter.html?slug=${encodeURIComponent(nextChapter.slug)}` : "";
+    document.body.dataset.nextChapterHref = nextChapter ? chapterHref(nextChapter.slug) : "";
 
     if (document.body.dataset.keyboardNavigationBound === "true") return;
     document.body.dataset.keyboardNavigationBound = "true";
@@ -630,7 +630,7 @@
       createElement("span", { className: "coming-soon-badge", text: "Atlas notice" }),
       createElement("h1", { id: "error-title", text: title }),
       createElement("p", { text: message }),
-      createElement("a", { className: "button button-primary", href: "index.html#contents", text: "Back to Contents" })
+      createElement("a", { className: "button button-primary", href: "/#contents", text: "Back to Contents" })
     );
 
     section.append(shell);
@@ -702,6 +702,10 @@
 
   function padChapter(number) {
     return String(number).padStart(2, "0");
+  }
+
+  function chapterHref(slug) {
+    return `/chapter/?slug=${encodeURIComponent(slug)}`;
   }
 
   window.CinematicWorldsAtlas = {
