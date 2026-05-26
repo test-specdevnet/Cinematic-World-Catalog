@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260526-cover-flow-fill";
+  const ASSET_VERSION = "20260526-cover-repair";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
