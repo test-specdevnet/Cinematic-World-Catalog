@@ -509,8 +509,8 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: auto;
-  margin-bottom: clamp(36px, 8svh, 104px);
+  margin-top: clamp(18px, 2.6svh, 30px);
+  margin-bottom: 0;
 }
 
 .cover-actions .button {
@@ -526,12 +526,8 @@ h3 {
   }
 
   .cover-actions {
-    position: absolute;
-    bottom: clamp(280px, 34svh, 360px);
-    left: 50%;
-    z-index: 3;
     margin: 0;
-    transform: translateX(-50%);
+    margin-top: clamp(18px, 2.6svh, 30px);
   }
 }
 
@@ -1604,7 +1600,8 @@ a.toc-entry:hover {
   }
 
   .cover-actions {
-    margin-bottom: clamp(28px, 7svh, 64px);
+    margin-top: clamp(14px, 2.4svh, 22px);
+    margin-bottom: 0;
   }
 
   .toc-entry {
