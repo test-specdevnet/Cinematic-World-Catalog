@@ -524,27 +524,27 @@ h3 {
   }
 
   .book-cover {
-    width: min(98vw, 104svh, 980px);
-    height: min(94svh, 960px);
+    width: min(92vw, 78svh, 780px);
+    height: min(92svh, 920px);
     aspect-ratio: auto;
   }
 
   .book-cover h1 {
-    width: min(94%, 860px);
-    margin-top: clamp(0px, 1.8svh, 22px);
-    font-size: clamp(2.55rem, 5.35vw, 4.55rem);
-    line-height: 0.9;
+    width: min(88%, 640px);
+    margin-top: clamp(48px, 6.4svh, 78px);
+    font-size: clamp(2.35rem, 4.65vw, 4.1rem);
+    line-height: 0.94;
   }
 
   .cover-subtitle {
-    max-width: min(92%, 58rem);
-    margin-top: clamp(6px, 0.9svh, 12px);
-    font-size: clamp(1.1rem, 1.55vw, 1.36rem);
+    max-width: min(80%, 44rem);
+    margin-top: clamp(14px, 1.7svh, 22px);
+    font-size: clamp(1.05rem, 1.36vw, 1.26rem);
   }
 
   .cover-actions {
     margin: 0;
-    margin-top: clamp(4px, 0.7svh, 10px);
+    margin-top: clamp(16px, 2svh, 24px);
   }
 }
 
