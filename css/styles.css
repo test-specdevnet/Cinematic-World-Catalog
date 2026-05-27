@@ -520,14 +520,23 @@ h3 {
 
 @media (min-width: 901px) {
   .book-cover {
-    width: min(92vw, 64svh, 660px);
+    width: min(92vw, 74svh, 720px);
     height: min(94svh, 960px);
     aspect-ratio: auto;
   }
 
+  .book-cover h1 {
+    width: min(96%, 640px);
+    font-size: clamp(2.45rem, 4.85vw, 4.25rem);
+  }
+
+  .cover-subtitle {
+    max-width: min(88%, 44rem);
+  }
+
   .cover-actions {
     margin: 0;
-    margin-top: clamp(18px, 2.6svh, 30px);
+    margin-top: clamp(8px, 1.2svh, 16px);
   }
 }
 
