@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260528-lore-audio";
+  const ASSET_VERSION = "20260528-video-labels";
   const page = document.body.dataset.page;
   let activeLorePlayback = null;
 
@@ -319,7 +319,7 @@
       });
 
       player.append(source, document.createTextNode("Your browser does not support embedded video."));
-      frame.append(player, createElement("figcaption", { text: label }));
+      frame.append(player);
       videoList.append(frame);
     });
 
