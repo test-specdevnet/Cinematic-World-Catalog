@@ -1099,6 +1099,59 @@ a.toc-entry:hover {
   color: var(--text);
 }
 
+.lore-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lore-listen-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.lore-listen-button {
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: rgba(247, 200, 115, 0.08);
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.lore-listen-button:hover {
+  background: rgba(247, 200, 115, 0.16);
+  transform: translateY(-1px);
+}
+
+.lore-listen-button.is-playing {
+  background: color-mix(in srgb, var(--accent) 24%, rgba(247, 200, 115, 0.08));
+  color: #fff8df;
+}
+
+.lore-listen-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+  transform: none;
+}
+
+.lore-listen-status {
+  min-height: 22px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .lore-block p {
   color: rgba(248, 241, 223, 0.84);
 }
@@ -1678,6 +1731,17 @@ a.toc-entry:hover {
 
   .prompt-card {
     padding: 12px;
+  }
+
+  .lore-heading-row,
+  .lore-listen-controls {
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .lore-listen-controls,
+  .lore-listen-button {
+    width: 100%;
   }
 
   .copy-row {

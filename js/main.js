@@ -2,8 +2,9 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260528-videos";
+  const ASSET_VERSION = "20260528-lore-audio";
   const page = document.body.dataset.page;
+  let activeLorePlayback = null;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
 
@@ -139,6 +140,7 @@
 
     setupThumbnailGallery(root);
     setupCopyPromptButtons(root);
+    setupLorePlayback(root);
     setupChapterKeyboardNavigation(previousChapter, nextChapter);
   }
 
@@ -224,7 +226,9 @@
 
   function createLoreBlock(chapter) {
     const group = createElement("section", { className: "content-group lore-block", "aria-labelledby": "lore-title" });
-    group.append(createElement("h2", { id: "lore-title", text: "Lore" }));
+    const header = createElement("div", { className: "lore-heading-row" });
+    header.append(createElement("h2", { id: "lore-title", text: "Lore" }), createLoreListenControls(chapter));
+    group.append(header);
 
     chapter.lore.forEach((entry) => {
       if (typeof entry === "object" && entry.type === "subheader") {
@@ -236,6 +240,41 @@
     });
 
     return group;
+  }
+
+  function createLoreListenControls(chapter) {
+    const text = getLoreSpeechText(chapter);
+    if (!text) return document.createDocumentFragment();
+
+    const controls = createElement("div", { className: "lore-listen-controls", "data-lore-listen": "true" });
+    const statusId = `lore-listen-status-${chapter.id}`;
+    const button = createElement("button", {
+      className: "lore-listen-button",
+      type: "button",
+      "aria-label": `Listen to lore for ${chapter.title}`,
+      "aria-pressed": "false",
+      "aria-describedby": statusId,
+      text: "Listen to Lore",
+    });
+    const status = createElement("span", {
+      className: "lore-listen-status",
+      id: statusId,
+      "aria-live": "polite",
+    });
+
+    button.dataset.loreText = text;
+    controls.append(button, status);
+    return controls;
+  }
+
+  function getLoreSpeechText(chapter) {
+    return (chapter.lore || [])
+      .map((entry) => {
+        if (typeof entry === "object" && entry.type === "subheader") return entry.text;
+        return entry;
+      })
+      .filter(Boolean)
+      .join("\n\n");
   }
 
   function createTagGroup(title, tags) {
@@ -477,6 +516,140 @@
         }
       });
     });
+  }
+
+  function setupLorePlayback(root) {
+    const controls = root.querySelector("[data-lore-listen]");
+    if (!controls) return;
+
+    const button = controls.querySelector(".lore-listen-button");
+    const status = controls.querySelector(".lore-listen-status");
+    const canSpeak = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+
+    if (!button || !status) return;
+
+    if (!canSpeak) {
+      button.disabled = true;
+      status.textContent = "Audio playback is not supported in this browser.";
+      return;
+    }
+
+    button.addEventListener("click", () => {
+      if (activeLorePlayback && activeLorePlayback.button === button) {
+        stopLorePlayback("Lore audio stopped.");
+        return;
+      }
+
+      startLorePlayback(button, status, button.dataset.loreText || "");
+    });
+
+    window.addEventListener("beforeunload", () => stopLorePlayback(""));
+  }
+
+  function startLorePlayback(button, status, text) {
+    const chunks = splitLoreForSpeech(text);
+    if (!chunks.length) {
+      status.textContent = "No lore text is available to read aloud.";
+      return;
+    }
+
+    stopLorePlayback("");
+    activeLorePlayback = {
+      button,
+      chunks,
+      index: 0,
+      status,
+      stopped: false,
+    };
+
+    button.textContent = "Stop Lore";
+    button.classList.add("is-playing");
+    button.setAttribute("aria-pressed", "true");
+    status.textContent = "Preparing lore audio.";
+    speakNextLoreChunk();
+  }
+
+  function speakNextLoreChunk() {
+    const playback = activeLorePlayback;
+    if (!playback || playback.stopped) return;
+
+    if (playback.index >= playback.chunks.length) {
+      resetLorePlayback(playback, "Lore reading finished.");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(playback.chunks[playback.index]);
+    utterance.rate = 0.96;
+    utterance.pitch = 0.96;
+    utterance.onstart = () => {
+      if (activeLorePlayback === playback) {
+        playback.status.textContent = `Reading lore section ${playback.index + 1} of ${playback.chunks.length}.`;
+      }
+    };
+    utterance.onend = () => {
+      if (activeLorePlayback !== playback || playback.stopped) return;
+      playback.index += 1;
+      speakNextLoreChunk();
+    };
+    utterance.onerror = () => {
+      if (activeLorePlayback === playback && !playback.stopped) {
+        resetLorePlayback(playback, "Lore audio stopped.");
+      }
+    };
+
+    playback.utterance = utterance;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function stopLorePlayback(message) {
+    if (!activeLorePlayback) return;
+
+    const playback = activeLorePlayback;
+    playback.stopped = true;
+    activeLorePlayback = null;
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    resetLoreButton(playback, message);
+  }
+
+  function resetLorePlayback(playback, message) {
+    activeLorePlayback = null;
+    resetLoreButton(playback, message);
+  }
+
+  function resetLoreButton(playback, message) {
+    playback.button.textContent = "Listen to Lore";
+    playback.button.classList.remove("is-playing");
+    playback.button.setAttribute("aria-pressed", "false");
+    if (message) playback.status.textContent = message;
+  }
+
+  function splitLoreForSpeech(text) {
+    return text
+      .split(/\n{2,}/)
+      .flatMap((part) => splitLongSpeechPart(part.trim()))
+      .filter(Boolean);
+  }
+
+  function splitLongSpeechPart(text) {
+    if (text.length <= 260) return [text];
+
+    const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    const chunks = [];
+    let current = "";
+
+    sentences.forEach((sentence) => {
+      const next = `${current} ${sentence.trim()}`.trim();
+      if (next.length <= 260) {
+        current = next;
+        return;
+      }
+
+      if (current) chunks.push(current);
+      current = sentence.trim();
+    });
+
+    if (current) chunks.push(current);
+    return chunks;
   }
 
   async function copyText(text) {
@@ -784,6 +957,7 @@
     setupScrollControls,
     setupThumbnailGallery,
     setupCopyPromptButtons,
+    setupLorePlayback,
     getChapterBySlug,
     getPublishedChapters,
     createMissingImageFallback,
