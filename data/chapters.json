@@ -13,6 +13,28 @@
     "coverImage": "assets/images/chapter-1-crystal-solarwave-skyport/1.png",
     "ctaLabel": "Commission this world style",
     "instagramCaptionSeed": "Explore the Crystal Solarwave Skyport, a luxury checkpoint in the clouds where solar-charged crystals power the final gateway to the core worlds.",
+    "video": {
+      "src": "assets/videos/chapter-1-crystal-solarwave-skyport/solarwave-skyport.mp4",
+      "label": "Solarwave Crystal Skyport Cinematic Video",
+      "poster": "assets/images/chapter-1-crystal-solarwave-skyport/1.png"
+    },
+    "videos": [
+      {
+        "src": "assets/videos/chapter-1-crystal-solarwave-skyport/solarwave-skyport.mp4",
+        "label": "Solarwave Crystal Skyport Cinematic Video",
+        "poster": "assets/images/chapter-1-crystal-solarwave-skyport/1.png"
+      },
+      {
+        "src": "assets/videos/chapter-1-crystal-solarwave-skyport/solarwave-skyport-reel-2.mp4",
+        "label": "Solarwave Crystal Skyport Reel 2",
+        "poster": "assets/images/chapter-1-crystal-solarwave-skyport/2.png"
+      },
+      {
+        "src": "assets/videos/chapter-1-crystal-solarwave-skyport/solarwave-skyport-reel-3.mp4",
+        "label": "Solarwave Crystal Skyport Reel 3",
+        "poster": "assets/images/chapter-1-crystal-solarwave-skyport/3.png"
+      }
+    ],
     "lore": [
       "High in the clouds floats the Solarwave Crystal Skyport, a city in the sky powered entirely by massive solar-charged crystal generators.",
       "This is the galaxy's final checkpoint for luxury goods before they reach the core worlds.",
@@ -88,6 +110,28 @@
     "coverImage": "assets/images/chapter-2-rainbow-nebula-refinery/1.png",
     "ctaLabel": "Commission this world style",
     "instagramCaptionSeed": "Enter the Rainbow Nebula Refinery, a restricted deep-space facility where volatile cosmic stardust becomes the fuel that keeps the galaxy moving.",
+    "video": {
+      "src": "assets/videos/chapter-2-rainbow-nebula-refinery/rainbow-nebula-refinery.mp4",
+      "label": "Rainbow Nebula Refinery Cinematic Video",
+      "poster": "assets/images/chapter-2-rainbow-nebula-refinery/1.png"
+    },
+    "videos": [
+      {
+        "src": "assets/videos/chapter-2-rainbow-nebula-refinery/rainbow-nebula-refinery.mp4",
+        "label": "Rainbow Nebula Refinery Cinematic Video",
+        "poster": "assets/images/chapter-2-rainbow-nebula-refinery/1.png"
+      },
+      {
+        "src": "assets/videos/chapter-2-rainbow-nebula-refinery/rainbow-nebula-refinery-reel-2.mp4",
+        "label": "Rainbow Nebula Refinery Reel 2",
+        "poster": "assets/images/chapter-2-rainbow-nebula-refinery/2.png"
+      },
+      {
+        "src": "assets/videos/chapter-2-rainbow-nebula-refinery/rainbow-nebula-refinery-reel-3.mp4",
+        "label": "Rainbow Nebula Refinery Reel 3",
+        "poster": "assets/images/chapter-2-rainbow-nebula-refinery/3.png"
+      }
+    ],
     "lore": [
       "In the vastness of deep space, light years away from the nearest inhabited planet, lies the Rainbow Nebula Refinery.",
       "Located in the heart of the Rainbow Nebula, a massive star graveyard, the refinery harvests cosmic space dust and converts it into hyperdrive fuel for light speed travel, a process known as Kinetic Refinement.",

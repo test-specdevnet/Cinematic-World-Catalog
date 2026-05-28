@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260526-cover-route-fix";
+  const ASSET_VERSION = "20260528-videos";
   const page = document.body.dataset.page;
 
   document.addEventListener("DOMContentLoaded", initAtlas);
@@ -191,6 +191,7 @@
     scroll.append(
       createChapterTitleGroup(chapter),
       createLoreBlock(chapter),
+      createChapterVideo(chapter),
       createPromptList(chapter),
       createPromptDna(chapter)
     );
@@ -243,6 +244,60 @@
     tags.forEach((tag) => list.append(createElement("span", { text: tag })));
     group.append(createElement("h2", { text: title }), list);
     return group;
+  }
+
+  function createChapterVideo(chapter) {
+    const videos = getChapterVideos(chapter);
+    if (!videos.length) return document.createDocumentFragment();
+
+    const titleId = `chapter-video-title-${chapter.id}`;
+    const group = createElement("section", {
+      className: "content-group chapter-video-block",
+      "aria-labelledby": titleId,
+    });
+    const videoList = createElement("div", {
+      className: videos.length === 1 ? "chapter-video-list is-single" : "chapter-video-list",
+    });
+
+    group.append(
+      createElement("div", { className: "section-kicker", text: "Cinematic Preview" }),
+      createElement("h2", { id: titleId, text: "World Motion Study" })
+    );
+
+    videos.forEach((video, index) => {
+      const label = video.label || `${chapter.title} cinematic video ${index + 1}`;
+      const frame = createElement("figure", { className: "chapter-video-frame" });
+      const player = createElement("video", {
+        controls: "",
+        playsinline: "",
+        preload: "metadata",
+        poster: versionAssetSrc(video.poster || chapter.coverImage || ""),
+        "aria-label": label,
+      });
+      const source = createElement("source", {
+        src: versionAssetSrc(video.src),
+        type: "video/mp4",
+      });
+
+      player.append(source, document.createTextNode("Your browser does not support embedded video."));
+      frame.append(player, createElement("figcaption", { text: label }));
+      videoList.append(frame);
+    });
+
+    group.append(videoList);
+    return group;
+  }
+
+  function getChapterVideos(chapter) {
+    if (Array.isArray(chapter.videos)) {
+      return chapter.videos.filter((video) => video && video.src);
+    }
+
+    if (chapter.video && chapter.video.src) {
+      return [chapter.video];
+    }
+
+    return [];
   }
 
   function createPromptList(chapter) {
@@ -608,7 +663,11 @@
 
     const rootPath = src.startsWith("/") ? src : `/${src}`;
 
-    if (rootPath.startsWith("/assets/images/") || rootPath.startsWith("/docs/reference/")) {
+    if (
+      rootPath.startsWith("/assets/images/") ||
+      rootPath.startsWith("/assets/videos/") ||
+      rootPath.startsWith("/docs/reference/")
+    ) {
       const cleanPath = rootPath.replace(/[?&]v=[^&]+/, "");
       const separator = cleanPath.includes("?") ? "&" : "?";
       return `${cleanPath}${separator}v=${ASSET_VERSION}`;
@@ -721,6 +780,7 @@
     renderTableOfContents,
     renderChapterPage,
     renderComingSoonChapter,
+    createChapterVideo,
     setupScrollControls,
     setupThumbnailGallery,
     setupCopyPromptButtons,
