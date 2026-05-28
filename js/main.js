@@ -224,9 +224,16 @@
   function createLoreBlock(chapter) {
     const group = createElement("section", { className: "content-group lore-block", "aria-labelledby": "lore-title" });
     group.append(createElement("h2", { id: "lore-title", text: "Lore" }));
-    chapter.lore.forEach((paragraph) => {
-      group.append(createElement("p", { text: paragraph }));
+
+    chapter.lore.forEach((entry) => {
+      if (typeof entry === "object" && entry.type === "subheader") {
+        group.append(createElement("h3", { className: "lore-subheader", text: entry.text }));
+        return;
+      }
+
+      group.append(createElement("p", { text: entry }));
     });
+
     return group;
   }
 
@@ -696,7 +703,7 @@
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
+      .replace(/\"/g, "&quot;")
       .replace(/'/g, "&#039;");
   }
 
