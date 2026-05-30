@@ -196,23 +196,102 @@
   {
     "id": "chapter-3",
     "chapterNumber": 3,
-    "slug": "elyssian-dome-cities",
-    "title": "Elyssian Dome Cities",
-    "shortTitle": "Elyssian Domes",
-    "status": "coming-soon",
-    "tagline": "A coming chapter in the atlas.",
-    "theme": "utopian dome civilization",
+    "slug": "elysian-bio-domes",
+    "title": "Elysian Bio-Domes",
+    "shortTitle": "Elysian Bio-Domes",
+    "status": "published",
+    "tagline": "Domed garden cities on a war-torn world that simulate and preserve an ancient botanical culture blending natural flora and elegant urbanism.",
+    "theme": "botanical preservation / domed utopia on a dead world",
     "accentColor": "#b7f7ff",
-    "imageDirectory": "",
-    "coverImage": "",
-    "images": [],
-    "lore": [],
-    "prompts": [],
-    "promptLabels": [],
-    "visualDNA": [],
-    "useCases": [],
-    "ctaLabel": "Notify me when this world opens",
-    "instagramCaptionSeed": ""
+    "imageDirectory": "assets/images/chapter-3-elysian-bio-domes",
+    "coverImage": "assets/images/chapter-3-elysian-bio-domes/1.png",
+    "ctaLabel": "Commission this world style",
+    "instagramCaptionSeed": "Enter the Elysian Bio-Domes, the last living garden cities of a war-torn world where crystalline domes preserve an ancient botanical civilization.",
+    "video": {
+      "src": "assets/videos/chapter-3-elysian-bio-domes/elysian-bio-domes.mp4",
+      "label": "Elysian Bio-Domes Cinematic Video",
+      "poster": "assets/images/chapter-3-elysian-bio-domes/1.png"
+    },
+    "videos": [
+      {
+        "src": "assets/videos/chapter-3-elysian-bio-domes/elysian-bio-domes.mp4",
+        "label": "Elysian Bio-Domes Cinematic Video",
+        "poster": "assets/images/chapter-3-elysian-bio-domes/1.png"
+      },
+      {
+        "src": "assets/videos/chapter-3-elysian-bio-domes/elysian-bio-domes-reel-2.mp4",
+        "label": "Elysian Bio-Domes Reel 2",
+        "poster": "assets/images/chapter-3-elysian-bio-domes/2.png"
+      },
+      {
+        "src": "assets/videos/chapter-3-elysian-bio-domes/elysian-bio-domes-reel-3.mp4",
+        "label": "Elysian Bio-Domes Reel 3",
+        "poster": "assets/images/chapter-3-elysian-bio-domes/3.png"
+      }
+    ],
+    "lore": [
+      "The Elysian Bio-Domes are the last remnants of the ancient civilization of Elysium, a planet that once teemed with life and vibrant tropical ecosystems.",
+      "After centuries of vicious conflict and bloodshed, the former beautiful oceanic paradise of Elysium is now a war-torn wasteland.",
+      "Orbital bombardments destroyed the planet's atmosphere, making it uninhabitable except for the Bio-Domes, which artificially simulate the beautiful Elysium habitats and garden cities of the past.",
+      { "type": "subheader", "text": "History" },
+      "Elysium was once a vibrant and beautiful world teeming with luscious plant life, sandy white beaches, and tropical climates.",
+      "The Elysian's themselves managed a thriving society of pristine elegance, but their artistic and cultural influence in the galaxy threatened the expansion of the Imperium.",
+      "Elysium was powerful and its people had a voice. If the Elysian's opposed Imperial expansion, so would countless other worlds, and this is something the Imperium could not risk.",
+      "Imperium agents infiltrated Elysium and began working campaigns of espionage to sew dissent and destabilize the planet politically.",
+      "After generations of growing corruption, a civil war broke out that engulfed Elysium and ravaged the planet for centuries, destroying the atmosphere and forcing the survivors into the Bio-Domes.",
+      { "type": "subheader", "text": "Mechanics" },
+      "Elysium once gleamed in the sunlight, standing as a cosmic beacon of hope in the galaxy. Now, beyond the shell of the protective Bio-Domes lies the dead-zone, a radioactive hellscape where access is forbidden by the fractured Elysian Elders Council.",
+      "The Bio-Domes are built from crystalline carbon shells that refract stellar radiation into atmospheric grids which break down toxic particle storms into breathable oxygen.",
+      "Breathable oxygen is provided in the Bio-Domes through advanced filtration systems that have to be cleared of debris and are guarded round the clock by the elite Bio-Dome Life Knight Corps.",
+      "The Bio-Dome Life Knight Corps is an elite collective of warriors tasked with protecting the autonomy of the Elysian Bio-Domes.",
+      "Life Knights are assigned to the corps based on personal commitment to the preservation of Elysium culture. These knights are raised with the knowledge of the Elysium civil war, but are never taught of the Imperium's involvement.",
+      "There are minimal imports to the Bio-Domes and little crime, so the Life Knights are tasked with more peace-keeper responsibilities; they essentially maintain order through a Bio-Dome police force rather than a military organization.",
+      { "type": "subheader", "text": "Culture" },
+      "Old Elysium was marked by a vibrant culture of arborism and botany. Elysians held some of the greatest plant knowledge in the known galaxy and were renowned for their beautiful, luscious garden cities.",
+      "The Garden Cities of Old Elysium blended elegant neo-royal architecture with natural plant life, creating beautiful cityscapes of flora integrated urbanism.",
+      "The Elysian Bio-Domes replicate the ancient garden cities of Old Elysium but the white marble against the backdrop of the scorched and war-torn surface of the planet is a stark difference to the beauty that once was.",
+      "Facing extinction following the civil war and the collapse of their atmosphere, the Elysian's became xenophobic, prohibiting cohabitation with outsiders to preserve their pure bloodlines.",
+      "The Bio-Domes are inhabited only by those who can trace family lineage directly back to the days of Old Elysium. Elysians who left the planet following the civil war and emigrated to other worlds were not allowed to return.",
+      "Complex quantum blood testing is performed annually on every Bio-Dome citizen to ensure that the purity of their race survives.",
+      "If you're ever in the sector, the Bio-Dome view from space is spectacular!"
+    ],
+    "prompts": [
+      "A magnificent futuristic utopian city preserved beneath a colossal transparent bio-dome on a barren alien world. View from an elevated marble terrace overlooking the city. Elegant white marble architecture, celestial domes, crystal spires, ornate towers, glowing blue energy channels, cascading gardens, flowering vegetation, ivy-covered arches, statues, fountains, and reflective pools. Massive glass dome structure rises overhead, revealing an endless wasteland beyond the protected habitat. A gigantic moon dominates the sky above distant mountains. Advanced civilization blending classical architecture with futuristic technology. Soft atmospheric sunlight streams through the dome creating volumetric god rays, realistic reflections, subtle haze, and cinematic depth. Ultra-detailed environmental storytelling, grand scale, highly intricate architecture, photorealistic materials, luxury sci-fi worldbuilding, utopian civilization surviving on a hostile planet. Extreme cinematic hyperrealism, AAA concept art quality, Unreal Engine 5, physically based rendering, global illumination, ultra detailed, masterpiece, 8k.",
+      "A vast network of massive transparent bio-domes scattered across a dead alien world. High-altitude aerial view looking down over dozens of illuminated dome cities connected by glowing transportation corridors stretching across the wasteland. Each dome contains thriving futuristic civilization, lush green ecosystems, elegant white architecture, crystal towers, parks, waterways, and advanced clean-energy infrastructure. Outside the domes lies a dark, barren planetary surface scarred by ancient ecological collapse, endless rocky terrain, abandoned ruins, and lifeless plains. The domes glow like islands of hope against the darkness. Warm sunset on the horizon with vibrant orange, pink, and purple skies fading into deep blue twilight. Thousands of city lights illuminate beneath the glass structures. Atmospheric scale emphasizes humanity's final sanctuaries surviving in a hostile environment. Epic science-fiction worldbuilding, breathtaking scale, cinematic composition, ultra-detailed architecture, realistic dome reflections, volumetric atmosphere, physically accurate lighting, environmental storytelling. Extreme cinematic hyperrealism, Unreal Engine 5, AAA science-fiction concept art, global illumination, ray-traced reflections, masterpiece, 8k, ultra detailed, photorealistic.",
+      "A lone guardian knight stands on a marble balcony overlooking the protected paradise within a beautiful domed city. The knight wears elegant white ceremonial armor adorned with intricate filigree, celestial engravings, and futuristic detailing. Around him bloom glowing blue crystalline flowers, lush gardens, bioluminescent plants, fountains, and pristine architecture bathed in cool blue light. The transparent dome overhead reveals a stark contrast beyond: a devastated alien wasteland stretching to the horizon, shattered terrain, industrial ruins, smoke columns, and distant remnants of a lost civilization. The dome's hexagonal glass framework is visible against storm-filled skies. Advanced solar collectors and crystal energy systems power the sanctuary. Mood of hope, resilience, and solemn responsibility. The knight silently watches over the last surviving paradise on a dying world. Epic environmental storytelling, dramatic contrast between utopia and apocalypse, highly detailed armor, cinematic depth, volumetric lighting, realistic materials, photorealistic vegetation, ultra-detailed architecture. Extreme cinematic hyperrealism, Unreal Engine 5, AAA sci-fi fantasy concept art, masterpiece, global illumination, ray tracing, 8k.",
+      "A colossal dome city rises from the center of a devastated alien wasteland. Cinematic aerial view looking toward a gigantic transparent geodesic dome containing a thriving futuristic garden city. Inside the dome are elegant white marble structures, blue crystal towers, lush forests, winding pathways, fountains, parks, and advanced sustainable architecture glowing with warm light. Outside the dome stretches a dead world of cracked earth, dark canyons, barren plains, and ecological devastation. Additional dome cities can be seen in the far distance across the horizon, each acting as an isolated sanctuary preserving life. The dome itself is constructed from advanced crystalline glass with subtle energy patterns and structural supports. Night atmosphere illuminated by city lights beneath the glass. Massive scale emphasizes humanity's last remaining habitats. Mood of resilience, survival, and optimism amid planetary collapse. Hyper-detailed architecture, realistic reflections, atmospheric haze, cinematic lighting, photorealistic materials, environmental storytelling, epic science-fiction worldbuilding. Extreme cinematic hyperrealism, Unreal Engine 5, AAA concept art, ray-traced lighting, global illumination, masterpiece, 8k, ultra detailed."
+    ],
+    "promptLabels": [
+      "Marble Terrace Sanctuary",
+      "Dome Network Wasteland",
+      "Life Knight Overlook",
+      "Geodesic Sanctuary City"
+    ],
+    "visualDNA": [
+      "transparent crystalline bio-domes",
+      "white marble garden cities",
+      "botanical preservation",
+      "war-torn wasteland exterior",
+      "blue energy channels",
+      "Life Knight Corps",
+      "neo-royal architecture",
+      "simulated ancient habitats",
+      "quantum bloodline testing"
+    ],
+    "useCases": [
+      "cinematic sci-fi worldbuilding reference",
+      "domed city commission",
+      "utopia versus apocalypse setting",
+      "botanical civilization design",
+      "lore carousel",
+      "AI video prompt foundation"
+    ],
+    "images": [
+      "assets/images/chapter-3-elysian-bio-domes/1.png",
+      "assets/images/chapter-3-elysian-bio-domes/2.png",
+      "assets/images/chapter-3-elysian-bio-domes/3.png",
+      "assets/images/chapter-3-elysian-bio-domes/4.png"
+    ]
   },
   {
     "id": "chapter-4",

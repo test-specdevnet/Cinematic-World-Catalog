@@ -27,6 +27,10 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
   assets/images/atlas-cover.png
   assets/images/chapter-1-crystal-solarwave-skyport/
   assets/images/chapter-2-rainbow-nebula-refinery/
+  assets/images/chapter-3-elysian-bio-domes/
+  assets/videos/chapter-1-crystal-solarwave-skyport/
+  assets/videos/chapter-2-rainbow-nebula-refinery/
+  assets/videos/chapter-3-elysian-bio-domes/
   docs/reference/
   README.md
   .gitignore
@@ -44,13 +48,14 @@ All chapter rendering is driven by `data/chapters.json`. `index.html` fetches th
 
 Future chapter additions should not require HTML, CSS, or JS changes unless a new visual treatment is intentionally introduced.
 
-## Add Chapter 3 Next Week
+## Add Future Chapters
 
-1. Add images to a new folder, for example `assets/images/chapter-3-elyssian-dome-cities/`.
+1. Add images to a new folder, for example `assets/images/chapter-4-timekeepers-citadel/`.
 2. Open `data/chapters.json`.
-3. Change Chapter 3 from `"status": "coming-soon"` to `"status": "published"`.
+3. Change the chapter from `"status": "coming-soon"` to `"status": "published"`.
 4. Add `imageDirectory`, `coverImage`, `images`, `lore`, `prompts`, `promptLabels`, `visualDNA`, `useCases`, `ctaLabel`, and `instagramCaptionSeed`.
-5. Visit `/chapter/?slug=elyssian-dome-cities` locally to verify the page.
+5. Add optional `video` or `videos` entries when cinematic previews are available.
+6. Visit `/chapter/?slug=<chapter-slug>` locally to verify the page.
 
 ## Replace Images
 
@@ -67,6 +72,10 @@ assets/images/chapter-2-rainbow-nebula-refinery/1.png
 assets/images/chapter-2-rainbow-nebula-refinery/2.png
 assets/images/chapter-2-rainbow-nebula-refinery/3.png
 assets/images/chapter-2-rainbow-nebula-refinery/4.png
+assets/images/chapter-3-elysian-bio-domes/1.png
+assets/images/chapter-3-elysian-bio-domes/2.png
+assets/images/chapter-3-elysian-bio-domes/3.png
+assets/images/chapter-3-elysian-bio-domes/4.png
 ```
 
 The JSON already points to those paths. If a future image is missing, the site shows elegant missing-image placeholders and does not break.
@@ -105,14 +114,16 @@ Then check:
 - `http://localhost:4173/index.html`
 - `http://localhost:4173/chapter/?slug=crystal-solarwave-skyport`
 - `http://localhost:4173/chapter/?slug=rainbow-nebula-refinery`
-- `http://localhost:4173/chapter/?slug=elyssian-dome-cities`
+- `http://localhost:4173/chapter/?slug=elysian-bio-domes`
 
 Validation checklist:
 
 - Index opens and renders JSON-driven table of contents.
-- Chapter 1 and Chapter 2 load as published pages.
+- Chapter 1, Chapter 2, and Chapter 3 load as published pages.
 - Coming-soon chapters render without breaking.
 - Copy prompt buttons show a copied or fallback message.
+- Lore listening controls are visible on published chapters.
+- Cinematic preview videos load where provided.
 - Mobile widths avoid horizontal overflow.
 - Keyboard focus states are visible.
 - Arrow keys navigate previous/next published chapters where available.
