@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "/data/chapters.json";
-  const ASSET_VERSION = "20260530-chapter-3";
+  const ASSET_VERSION = "20260606-chapter-4";
   const page = document.body.dataset.page;
   let activeLorePlayback = null;
 

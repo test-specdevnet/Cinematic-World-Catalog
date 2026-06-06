@@ -297,21 +297,102 @@
     "id": "chapter-4",
     "chapterNumber": 4,
     "slug": "timekeepers-citadel",
-    "title": "Timekeeper's Citadel",
-    "shortTitle": "Timekeeper's Citadel",
-    "status": "coming-soon",
-    "tagline": "A coming chapter in the atlas.",
-    "theme": "temporal citadel / ancient machine world",
+    "title": "Timekeepers Citadel",
+    "shortTitle": "Timekeepers Citadel",
+    "status": "published",
+    "tagline": "An ancient order of celestial monks that can travel through time to observe the past or future and gain knowledge to preserve the galaxy.",
+    "theme": "celestial monastery / temporal clockwork citadel",
     "accentColor": "#d8b27a",
-    "imageDirectory": "",
-    "coverImage": "",
-    "images": [],
-    "lore": [],
-    "prompts": [],
-    "promptLabels": [],
-    "visualDNA": [],
-    "useCases": [],
-    "ctaLabel": "Notify me when this world opens",
-    "instagramCaptionSeed": ""
+    "imageDirectory": "assets/images/chapter-4-timekeepers-citadel",
+    "coverImage": "assets/images/chapter-4-timekeepers-citadel/1.png",
+    "ctaLabel": "Commission this world style",
+    "instagramCaptionSeed": "Enter the Timekeepers Citadel, an ancient celestial monastery where chronometric Time Wheels open gateways across the past and future.",
+    "video": {
+      "src": "assets/videos/chapter-4-timekeepers-citadel/timekeepers-citadel.mp4",
+      "label": "Timekeepers Citadel Cinematic Video",
+      "poster": "assets/images/chapter-4-timekeepers-citadel/1.png"
+    },
+    "videos": [
+      {
+        "src": "assets/videos/chapter-4-timekeepers-citadel/timekeepers-citadel.mp4",
+        "label": "Timekeepers Citadel Cinematic Video",
+        "poster": "assets/images/chapter-4-timekeepers-citadel/1.png"
+      },
+      {
+        "src": "assets/videos/chapter-4-timekeepers-citadel/timekeepers-citadel-reel-2.mp4",
+        "label": "Timekeepers Citadel Reel 2",
+        "poster": "assets/images/chapter-4-timekeepers-citadel/2.png"
+      },
+      {
+        "src": "assets/videos/chapter-4-timekeepers-citadel/timekeepers-citadel-reel-3.mp4",
+        "label": "Timekeepers Citadel Reel 3",
+        "poster": "assets/images/chapter-4-timekeepers-citadel/3.png"
+      }
+    ],
+    "lore": [
+      "On the edge of the known galaxy lies an ancient order of celestial monks known as the Timekeepers who dwell in the Timekeepers Citadel and possess the ability to travel through time.",
+      "Time is perceived as linear, we move forward through it. But to the Timekeeper's, it is circular and these monks are able to move forwards, backwards, and across time however they see fit.",
+      "Timekeepers cannot influence the past or future when traveling through time, they can only observe as passive bystanders.",
+      "The Timekeepers Citadel is a vault of secrecy, historical insight, and deep galactic knowledge collected throughout the ages.",
+      { "type": "subheader", "text": "Mechanics" },
+      "The Timekeepers Citadel has stood for as long as anyone has remembered. The name of the planet on which this ancient institution stands has been lost to history, which may not have been accidental.",
+      "The passage of time feels non-existent in this world, as if the only thing anchoring it in the wider galaxy is gravity itself. Within its golden brass halls, The Citadel houses chronometric devices known as time wheels.",
+      "Time Wheels calculate and lock onto specific temporal coordinates. When activated, they generate stabilized spacetime apertures that connect to distant eras.",
+      "Through these gateways, the Timekeepers can enter carefully selected points along the timeline, observing history from within its flow without altering its course.",
+      { "type": "subheader", "text": "Purpose" },
+      "The Timekeepers Citadel functions as a neutral pillar of galactic society, helping to ensure that time flows accordingly.",
+      "The Timekeepers very selectively reveal insights learned from time travel, usually sharing their knowledge only to help prevent cataclysmic, universe-ending events.",
+      "Using their knowledge to gain power goes against the purpose of the Timekeepers. They exist outside of time and do not participate in galactic politics.",
+      "Their only prerogative is to maintain the flow of time and keep their records and function of the Time Wheels a secret from all outsiders.",
+      { "type": "subheader", "text": "History & Significance" },
+      "The Timekeepers Citadel existed in isolation outside of time for centuries, staying neutral in galactic politics and never exposing their knowledge to outsiders.",
+      "All of that changed when the Imperium touched down on the Timekeeper's world. While still preserved in pristine elegance and ornamental beauty, the Citadel remains under the control and influence of the Imperium.",
+      "The ability to learn from the past and future was a power that the Imperium needed to control.",
+      "Through their hostile takeover of the Citadel, the Imperium was able to manipulate the Time Wheels and gain knowledge for an unchallenged galactic expansion.",
+      "When the Imperium landed on the Timekeeper's world, the celestial monks were given a choice: share their knowledge with the Imperium or be destroyed.",
+      "If the Citadel were to be destroyed, the flow of time could collapse and there would be no one to steer the direction of the galaxy away from universe-ending catastrophes.",
+      "The Imperium recognizes the importance of the Timekeepers Citadel and allows the monks to operate normally, so long as they provide insights to the Imperium about potential threats to the regime of the core worlds.",
+      "The Timekeepers Citadel exists to ensure the flow of time within the galaxy.",
+      "The ability to look back on the past and forward into the future gives these celestial monks the ability to steer galactic fate away from cataclysmic, universe ending events.",
+      "Through chronometric Time Wheels, the Timekeepers can interact with spacetime apertures that connect to the past or future, and learn valuable insights about a specific era.",
+      "If you're ever in the sector, drop by the Citadel for a very accurate fortune telling."
+    ],
+    "prompts": [
+      "A breathtaking celestial fantasy citadel high above the clouds, towering white stone and gold clockwork architecture with immense circular astrolabe mechanisms, glowing blue stained-glass windows, ornate spires, red-and-gold banners, pink flowering trees, bridges between floating mountain peaks, a bright sun breaking through clouds on the left, huge crescent planet and moon in a deep blue starry sky, epic high fantasy, divine architecture, ultra-detailed, cinematic lighting, grand scale, sharp focus, 4:5 portrait composition.",
+      "A majestic fantasy palace terrace overlooking mountains above the clouds, ornate gold-and-stone towers with glowing blue crystal windows, red robed guardians walking along a stone path, cherry blossom trees framing the scene, red banners with golden celestial symbols, waterfalls cascading from distant cliffs, flying airships crossing the sky, a giant crescent planet and small moon overhead, dramatic sunrise light, epic fantasy atmosphere, highly detailed, cinematic, painterly realism, 4:5 portrait composition.",
+      "Interior of a grand celestial clockwork cathedral, dark marble floors with glowing blue circular sigils, towering gold-and-steel columns, luminous blue glass chambers, hanging lanterns, massive astrolabe sphere at the center, robed armored figures in deep red cloaks with glowing blue devices on their backs, blue and gold banners, soft beams of light entering from high windows, sacred arcane machinery, ornate futuristic fantasy architecture, ultra-detailed, cinematic lighting, symmetrical grand hall, 4:5 portrait composition.",
+      "A heroic fantasy traveler in a red cloak and ornate armor standing on a high stone terrace, looking toward a bridge leading to a celestial mountain fortress, gold-and-stone architecture with glowing blue crystal accents, red robed figures crossing the bridge, waterfalls falling into clouds, pink flowering trees and blossoms surrounding the path, immense jagged mountains, starry blue sky with a giant crescent planet and smaller moon, flying ships in the distance, epic adventure fantasy, cinematic sunrise, ultra-detailed, dramatic scale, 4:5 portrait composition."
+    ],
+    "promptLabels": [
+      "Celestial Clockwork Citadel",
+      "Monastic Mountain Terrace",
+      "Time Wheel Cathedral",
+      "Bridge to the Citadel"
+    ],
+    "visualDNA": [
+      "celestial clockwork architecture",
+      "chronometric Time Wheels",
+      "white stone and golden brass",
+      "glowing blue temporal energy",
+      "red-robed celestial monks",
+      "floating mountain peaks",
+      "crescent planet and moons",
+      "pink flowering trees",
+      "spacetime apertures"
+    ],
+    "useCases": [
+      "cinematic fantasy worldbuilding reference",
+      "celestial citadel commission",
+      "time travel civilization design",
+      "sacred clockwork architecture",
+      "lore carousel",
+      "AI video prompt foundation"
+    ],
+    "images": [
+      "assets/images/chapter-4-timekeepers-citadel/1.png",
+      "assets/images/chapter-4-timekeepers-citadel/2.png",
+      "assets/images/chapter-4-timekeepers-citadel/3.png",
+      "assets/images/chapter-4-timekeepers-citadel/4.png"
+    ]
   }
 ]

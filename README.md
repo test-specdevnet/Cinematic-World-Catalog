@@ -28,9 +28,11 @@ The reference mockup is included at `docs/reference/cinematic-worlds-atlas-mocku
   assets/images/chapter-1-crystal-solarwave-skyport/
   assets/images/chapter-2-rainbow-nebula-refinery/
   assets/images/chapter-3-elysian-bio-domes/
+  assets/images/chapter-4-timekeepers-citadel/
   assets/videos/chapter-1-crystal-solarwave-skyport/
   assets/videos/chapter-2-rainbow-nebula-refinery/
   assets/videos/chapter-3-elysian-bio-domes/
+  assets/videos/chapter-4-timekeepers-citadel/
   docs/reference/
   README.md
   .gitignore
@@ -50,7 +52,7 @@ Future chapter additions should not require HTML, CSS, or JS changes unless a ne
 
 ## Add Future Chapters
 
-1. Add images to a new folder, for example `assets/images/chapter-4-timekeepers-citadel/`.
+1. Add images to a new folder, for example `assets/images/chapter-5-new-world/`.
 2. Open `data/chapters.json`.
 3. Change the chapter from `"status": "coming-soon"` to `"status": "published"`.
 4. Add `imageDirectory`, `coverImage`, `images`, `lore`, `prompts`, `promptLabels`, `visualDNA`, `useCases`, `ctaLabel`, and `instagramCaptionSeed`.
@@ -76,6 +78,10 @@ assets/images/chapter-3-elysian-bio-domes/1.png
 assets/images/chapter-3-elysian-bio-domes/2.png
 assets/images/chapter-3-elysian-bio-domes/3.png
 assets/images/chapter-3-elysian-bio-domes/4.png
+assets/images/chapter-4-timekeepers-citadel/1.png
+assets/images/chapter-4-timekeepers-citadel/2.png
+assets/images/chapter-4-timekeepers-citadel/3.png
+assets/images/chapter-4-timekeepers-citadel/4.png
 ```
 
 The JSON already points to those paths. If a future image is missing, the site shows elegant missing-image placeholders and does not break.
@@ -99,7 +105,7 @@ Use these Cloudflare Pages settings:
 - Build output directory: `/`
 - Root directory: `/`
 
-The `_headers` file adds basic security headers plus long-lived image caching and lighter HTML/data caching. `_redirects` provides simple shortcuts for Instagram and the two published world URLs.
+The `_headers` file adds basic security headers plus long-lived image caching and lighter HTML/data caching. `_redirects` provides simple shortcuts for Instagram and published world URLs.
 
 ## Local Validation
 
@@ -115,11 +121,12 @@ Then check:
 - `http://localhost:4173/chapter/?slug=crystal-solarwave-skyport`
 - `http://localhost:4173/chapter/?slug=rainbow-nebula-refinery`
 - `http://localhost:4173/chapter/?slug=elysian-bio-domes`
+- `http://localhost:4173/chapter/?slug=timekeepers-citadel`
 
 Validation checklist:
 
 - Index opens and renders JSON-driven table of contents.
-- Chapter 1, Chapter 2, and Chapter 3 load as published pages.
+- Chapter 1, Chapter 2, Chapter 3, and Chapter 4 load as published pages.
 - Coming-soon chapters render without breaking.
 - Copy prompt buttons show a copied or fallback message.
 - Lore listening controls are visible on published chapters.
